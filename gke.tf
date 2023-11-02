@@ -5,6 +5,7 @@ resource "google_container_cluster" "abdelrhmxn-gke-cluster" {
   initial_node_count       = 1
   network                  = data.google_compute_network.my-network.id
   subnetwork               = google_compute_subnetwork.workload-subnet.id
+  deletion_protection = false
   private_cluster_config {
     enable_private_nodes    = true
     enable_private_endpoint = true
