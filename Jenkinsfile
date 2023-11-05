@@ -22,7 +22,13 @@ pipeline {
         }
         stage('Teigger App-Pipline'){
             steps{
-                build job: "App-Pipline", wait: true
+                script{
+                    if (params.action == 'apply') {   
+                        build job: "App-Pipline", wait: true
+                    } else {
+                        sh "echo done"
+                    }
+                }
             }
         }
 
