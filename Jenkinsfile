@@ -9,7 +9,7 @@ pipeline {
                 sh "terraform init"
             }
         }
-        stage('Terraform Apply'){
+        stage('Terraform Apply/Destroy'){
             steps{
                 script{
                     if (params.action == 'apply') {   

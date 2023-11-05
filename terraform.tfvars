@@ -8,6 +8,6 @@ region-workload-subnet= "us-central1"
 type-vm= "e2-medium"
 image-vm= "debian-cloud/debian-11"
 
-gke-location= "us-central1"
+gke-location= "us-central1-a"
 
 
