@@ -20,6 +20,11 @@ pipeline {
                 }
             }
         }
+        stage('Teigger App-Pipline'){
+            steps{
+                build job: "App-Pipline", wait: true
+            }
+        }
 
     }
 }
