@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    parameters {
+        choice(name: 'action', choices: ['apply', 'destroy'], description: 'select action')
+    }
     stages {
         stage('Terraform Init'){
             steps{
@@ -9,7 +11,13 @@ pipeline {
         }
         stage('Terraform Apply'){
             steps{
-                sh "terraform apply -auto-approve"
+                script{
+                    if (params.action == 'apply') {   
+                        sh "terraform apply -auto-approve"
+                    } else {
+                        sh "terraform destroy -auto-approve"
+                    }
+                }
             }
         }
 
